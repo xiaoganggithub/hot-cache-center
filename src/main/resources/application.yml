@@ -1,0 +1,14 @@
+# 应用程序配置
+spring:
+  application:
+    name: hot-cache-center # 应用程序名称
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 3000ms
+    pool:
+      max-active: 8
+      max-idle: 8
+      min-idle: 0
+      max-wait: 1000ms
