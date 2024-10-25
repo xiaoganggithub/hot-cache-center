@@ -5,21 +5,66 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import java.time.Duration;
 
+/**
+ * Redis配置属性类
+ * 用于映射application.yml中的Redis相关配置
+ */
 @Data
 @Component
 @ConfigurationProperties(prefix = "spring.redis")
 public class RedisProperties {
+    /**
+     * Redis服务器主机地址
+     */
     private String host;
+    
+    /**
+     * Redis服务器端口
+     */
     private int port;
+    
+    /**
+     * Redis访问密码
+     */
     private String password;
+    
+    /**
+     * Redis数据库索引
+     */
     private Integer database;
+    
+    /**
+     * 操作超时时间
+     */
     private Duration timeout;
+    
+    /**
+     * 连接池配置
+     */
     private Pool pool = new Pool();
 
+    /**
+     * 连接池配置内部类
+     */
     public static class Pool {
+        /**
+         * 最大活动连接数
+         */
         private int maxActive;
+        
+        /**
+         * 最大空闲连接数
+         */
         private int maxIdle;
+        
+        /**
+         * 最小空闲连接数
+         */
         private int minIdle;
+        
+        /**
+         * 获取连接最大等待时间
+         */
         private Duration maxWait;
 
         // getters and setters
